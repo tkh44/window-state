@@ -25,14 +25,18 @@
     "react": "15.x"
   },
   "devDependencies": {
+    "np": "^2.12.0",
     "nwb": "0.15.x",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },
   "author": "Kye Hohenberger",
-  "homepage": "",
+  "homepage": "https://github.com/tkh44/window-state#readme",
   "license": "MIT",
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkh44/window-state.git"
+  },
   "keywords": [
     "react-component",
     "react",
@@ -40,5 +44,11 @@
     "size",
     "dimensions",
     "scroll"
-  ]
+  ],
+  "directories": {
+    "test": "tests"
+  },
+  "bugs": {
+    "url": "https://github.com/tkh44/window-state/issues"
+  }
 }

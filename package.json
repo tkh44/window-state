@@ -1,6 +1,6 @@
 {
   "name": "window-state",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "WindowState React component. scrollTop and window dimensions on demand",
   "main": "lib/index.js",
   "module": "es/index.js",

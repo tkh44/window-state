@@ -9,7 +9,5 @@ export function getScrollPos () {
 }
 
 export function getWinSize (includeScrollbars) {
-  return includeScrollbars
-    ? getViewportDimensions()
-    : getViewportDimensions.withoutScrollbars()
+  return includeScrollbars ? getViewportDimensions() : getViewportDimensions.withoutScrollbars()
 }

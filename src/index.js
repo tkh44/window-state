@@ -2,7 +2,8 @@ import { Component, Children } from 'react'
 import listen from 'simple-listen'
 import { registerScrollListener, unregisterScrollListener } from './scrollRegistration'
 import { getScrollPos, getWinSize } from './utils'
-export default class extends Component {
+
+export default class WindowState extends Component {
   static defaultProps = {
     onScroll: () => {},
     onResize: () => {},

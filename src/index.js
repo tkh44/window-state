@@ -1,11 +1,12 @@
 import { Component, Children } from 'react'
 import listen from 'simple-listen'
 import { registerScrollListener, unregisterScrollListener } from './scrollRegistration'
-import { getScrollPos } from './utils'
+import { getScrollPos, getWinSize } from './utils'
 export default class extends Component {
   static defaultProps = {
     onScroll: () => {},
-    onResize: () => {}
+    onResize: () => {},
+    includeScrollbars: true
   }
 
   state = {
@@ -33,14 +34,13 @@ export default class extends Component {
   }
 
   handleResize = () => {
-    const winHeight = window.innerHeight
-    const winWidth = window.innerWidth
+    const { height: winHeight, width: winWidth } = getWinSize(this.props.includeScrollbars)
     this.setState({ winWidth, winHeight })
     this.props.onResize({ winHeight, winWidth })
   }
 
   handleScroll = () => {
-    const scrollY = getScrollPos()
+    const scrollY = getScrollPos(getWinSize)
     this.setState({ scrollTop: scrollY })
     this.props.onScroll(scrollY)
   }

@@ -34,11 +34,18 @@ const enablePointerEventsAfterDelay = () => {
     clearTimeout(disablePointerEventsTimeoutId)
   }
 
-  disablePointerEventsTimeoutId = setTimeout(enablePointerEventsAfterDelayCallback, IS_SCROLLING_TIMEOUT)
+  disablePointerEventsTimeoutId = setTimeout(
+    enablePointerEventsAfterDelayCallback,
+    IS_SCROLLING_TIMEOUT
+  )
 }
 
-const onScrollWindow = (event) => {
-  if (originalBodyPointerEvents == null) {
+const onScrollWindow = event => {
+  if (
+    event.currentTarget === window &&
+    originalBodyPointerEvents == null &&
+    document.body.style.pointerEvents !== 'none'
+  ) {
     originalBodyPointerEvents = document.body.style.pointerEvents
 
     document.body.style.pointerEvents = 'none'
@@ -57,8 +64,8 @@ export const registerScrollListener = (component, handler) => {
   mountedInstances.push({ component, handler })
 }
 
-export const unregisterScrollListener = (component) => {
-  mountedInstances = mountedInstances.filter((c) => (c.component !== component))
+export const unregisterScrollListener = component => {
+  mountedInstances = mountedInstances.filter(c => c.component !== component)
   if (!mountedInstances.length) {
     window.removeEventListener('scroll', onScrollWindow)
     if (disablePointerEventsTimeoutId) {

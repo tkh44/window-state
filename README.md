@@ -9,7 +9,7 @@ In an idea taken from [react-virtualized](https://github.com/bvaughn/react-virtu
 _Each instance of the component does have a resize listener_
 
 ```jsx
-<WindowState>
+<WindowState includeScrollbars={false}>
   ({ scrollTop, winHeight, winWidth }) => {
     console.log(scrollTop)
     return (<div style={{ height: winHeight, width: winWidth }} />)

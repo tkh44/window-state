@@ -11,8 +11,8 @@ export default class WindowState extends Component {
   }
 
   state = {
-    winHeight: window.innerHeight,
-    winWidth: window.innerWidth,
+    winHeight: typeof window === 'object' ? window.innerHeight : 0,
+    winWidth: typeof window === 'object' ? window.innerWidth : 0,
     scrollTop: 0
   }
 
